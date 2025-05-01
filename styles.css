@@ -165,9 +165,9 @@ section {
 #galerie .gallery-img {
     border-radius: 10px;
     transition: transform 0.3s ease, border 0.3s ease;
-    object-fit: cover;
-    height: 200px;
+    object-fit: contain; /* Show full image without cropping */
     width: 100%;
+    max-height: 200px; /* Cap height but allow scaling */
     cursor: pointer;
 }
 
@@ -199,13 +199,33 @@ section {
 
 .modal-body img {
     border-radius: 5px;
-    max-height: 70vh; /* Limit height to fit screen */
+    max-height: 80vh; /* Increase height to fit mobile screens better */
     width: 100%;
     object-fit: contain;
 }
 
 .modal-dialog {
     max-width: 90%; /* Responsive width */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #galerie .gallery-img {
+        max-height: 150px; /* Cap height for smaller screens */
+    }
+
+    .modal-dialog {
+        max-width: 95%; /* Use more screen width on mobile */
+        margin: 10px auto; /* Reduce margin for more space */
+    }
+
+    .modal-body {
+        padding: 10px; /* Reduce padding to maximize image space */
+    }
+
+    .modal-body img {
+        max-height: 75vh; /* Slightly reduce height to account for header/footer */
+    }
 }
 
 /* Contact Form */

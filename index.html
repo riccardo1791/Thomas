@@ -98,8 +98,10 @@
         <div class="container">
             <h2 class="text-center mb-4">Ein Blick in unsere Welt</h2>
             <div class="row">
-                <div class="col-md-3 mb-3">
-                    <img src="images/Imker1.png" alt="Bienen" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="images/Imker1.png">
+              <div class="col-md-3 mb-3">
+                  <div class="image-wrapper">
+                      <img src="images/Imker1.png" alt="Bienen" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="images/Imker1.png">
+                  </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <img src="https://images.unsplash.com/photo-1569623147439-0b556a07cd86?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Honigglas" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="https://images.unsplash.com/photo-1569623147439-0b556a07cd86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
@@ -143,11 +145,13 @@
             galleryImages.forEach(img => {
                 img.addEventListener('click', function () {
                     const src = this.getAttribute('data-src');
+                    const alt = this.getAttribute('alt') || 'Galeriebild';
                     if (src) {
                         modalImage.src = src;
+                        modalImage.alt = alt; // Set alt text for accessibility
                         modalImage.onerror = () => {
                             console.error('Failed to load image:', src);
-                            modalImage.src = ''; // Clear src on error
+                            modalImage.src = '';
                             modalImage.alt = 'Bild konnte nicht geladen werden';
                         };
                     } else {
