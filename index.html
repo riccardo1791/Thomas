@@ -48,7 +48,7 @@
                     <p>Ob Frühtracht, Sommerblüte oder Waldhonig – jeder Jahrgang erzählt seine eigene Geschichte. Direkt aus der Region, voller Geschmack und frei von Zusätzen. Ein Genuss, der nicht nur schmeckt, sondern auch ein gutes Gefühl hinterlässt.</p>
                 </div>
                 <div class="col-md-6">
-                    <img src="Thomas.png" alt="Thomas Rinke mit Bienen" class="img-fluid rounded">
+                    <img src="images/Thomas.png" alt="Thomas Rinke mit Bienen" class="img-fluid rounded">
                 </div>
             </div>
         </div>
@@ -99,20 +99,64 @@
             <h2 class="text-center mb-4">Ein Blick in unsere Welt</h2>
             <div class="row">
                 <div class="col-md-3 mb-3">
-                    <img src="Imker1.png" alt="Bienen" class="img-fluid rounded">
+                    <img src="images/Imker1.png" alt="Bienen" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="images/Imker1.png">
                 </div>
                 <div class="col-md-3 mb-3">
-                    <img src="https://images.unsplash.com/photo-1569623147439-0b556a07cd86?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Honigglas" class="img-fluid rounded">
+                    <img src="https://images.unsplash.com/photo-1569623147439-0b556a07cd86?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Honigglas" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="https://images.unsplash.com/photo-1569623147439-0b556a07cd86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
                 </div>
                 <div class="col-md-3 mb-3">
-                    <img src="https://images.unsplash.com/photo-1593103636645-eea06e0987d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Imkerei" class="img-fluid rounded">
+                    <img src="https://images.unsplash.com/photo-1593103636645-eea06e0987d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Imkerei" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="https://images.unsplash.com/photo-1593103636645-eea06e0987d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
                 </div>
                 <div class="col-md-3 mb-3">
-                    <img src="https://images.unsplash.com/photo-1504201553153-90a2e0fb8050?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Natur" class="img-fluid rounded">
+                    <img src="https://images.unsplash.com/photo-1504201553153-90a2e0fb8050?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Natur" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="https://images.unsplash.com/photo-1504201553153-90a2e0fb8050?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Enlarged Images -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel">Bildvorschau</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="" class="img-fluid" id="modalImage" alt="Vergrößertes Bild">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- JavaScript for Modal Image -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const galleryImages = document.querySelectorAll('.gallery-img');
+            const modalImage = document.getElementById('modalImage');
+
+            if (!modalImage) {
+                console.error('Modal image element not found!');
+                return;
+            }
+
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function () {
+                    const src = this.getAttribute('data-src');
+                    if (src) {
+                        modalImage.src = src;
+                        modalImage.onerror = () => {
+                            console.error('Failed to load image:', src);
+                            modalImage.src = ''; // Clear src on error
+                            modalImage.alt = 'Bild konnte nicht geladen werden';
+                        };
+                    } else {
+                        console.error('No data-src attribute found for image:', img);
+                    }
+                });
+            });
+        });
+    </script>
 
     <!-- Contact Section -->
     <section id="kontakt" class="py-5 bg-light">

@@ -162,17 +162,50 @@ section {
 }
 
 /* Gallery */
-#galerie img {
+#galerie .gallery-img {
     border-radius: 10px;
-    transition: transform 0.3s, border 0.3s;
+    transition: transform 0.3s ease, border 0.3s ease;
     object-fit: cover;
     height: 200px;
     width: 100%;
+    cursor: pointer;
 }
 
-#galerie img:hover {
-    transform: scale(1.05);
-    border: 2px solid #FFC107;
+#galerie .gallery-img:hover {
+    transform: scale(1.1);
+    border: 3px solid #FFC107; /* Honey Gold */
+}
+
+#galerie .gallery-img:active {
+    transform: scale(1.05); /* Slight feedback on click */
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 10px;
+    border: 2px solid #FFC107; /* Honey Gold */
+    background-color: #FFF8E1; /* Cream White */
+}
+
+.modal-header {
+    background-color: #4A2C0B; /* Deep Honey Brown */
+    color: #FFF8E1; /* Cream White */
+    border-bottom: none;
+}
+
+.modal-title {
+    font-family: 'Lora', serif;
+}
+
+.modal-body img {
+    border-radius: 5px;
+    max-height: 70vh; /* Limit height to fit screen */
+    width: 100%;
+    object-fit: contain;
+}
+
+.modal-dialog {
+    max-width: 90%; /* Responsive width */
 }
 
 /* Contact Form */
