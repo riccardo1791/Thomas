@@ -1,0 +1,246 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333333;
+    line-height: 1.6;
+    background-color: #FFF8E1; /* Cream White */
+    margin: 0;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Lora', serif;
+    color: #4A2C0B; /* Deep Honey Brown */
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #FFF8E1; /* Cream White */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    color: #4A2C0B !important;
+}
+
+.nav-link {
+    color: #4A2C0B !important;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #FFC107 !important; /* Honey Gold */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFC107;
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(74, 44, 11, 0.5), rgba(255, 193, 7, 0.3)),
+                url('https://images.unsplash.com/photo-1569623147439-0b556a07cd86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFF8E1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: #FFF8E1;
+}
+
+.hero p {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.hero .btn-primary {
+    background-color: #FFC107;
+    border-color: #FFC107;
+    color: #4A2C0B;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s;
+}
+
+.hero .btn-primary:hover {
+    background-color: #FFCA28;
+    border-color: #FFCA28;
+}
+
+/* Sections */
+section {
+    padding: 80px 0;
+}
+
+#geschichte, #kontakt {
+    background-color: #FFFDE7; /* Light Gold */
+}
+
+#produkte {
+    background-color: #FFF8E1; /* Cream White */
+}
+
+/* Product Cards */
+.card {
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
+}
+
+.card-title {
+    font-family: 'Lora', serif;
+    color: #4A2C0B;
+}
+
+.card-text {
+    color: #333333;
+}
+
+.card .btn-outline-primary {
+    border-color: #FFC107;
+    color: #FFC107;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card .btn-outline-primary:hover {
+    background-color: #FFC107;
+    color: #4A2C0B;
+}
+
+/* Price Badge */
+.card p strong {
+    display: inline-block;
+    background-color: #FFEB3B; /* Bee Yellow */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Gallery */
+#galerie img {
+    border-radius: 10px;
+    transition: transform 0.3s, border 0.3s;
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+}
+
+#galerie img:hover {
+    transform: scale(1.05);
+    border: 2px solid #FFC107;
+}
+
+/* Contact Form */
+.form-control {
+    border-color: #4A2C0B;
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: #FFC107;
+    box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+}
+
+#kontakt .btn-primary {
+    background-color: #FFC107;
+    border-color: #FFC107;
+    color: #4A2C0B;
+}
+
+#kontakt .btn-primary:hover {
+    background-color: #FFCA28;
+    border-color: #FFCA28;
+}
+
+/* Footer */
+footer {
+    background-color: #2E7D32; /* Forest Green */
+    color: #FFF8E1;
+}
+
+footer a {
+    color: #FFF8E1;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #FFC107;
+}
+
+/* Hexagonal Divider (Optional) */
+section::before {
+    content: '';
+    display: block;
+    height: 30px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="%23FFF8E1" points="0,0 50,100 100,0"/></svg>') repeat-x;
+    background-size: 30px;
+    margin-bottom: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    #galerie img {
+        height: 150px;
+    }
+}
